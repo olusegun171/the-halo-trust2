@@ -29,7 +29,7 @@ class Activity extends Model
         return $this->hasMany(ActivityOutput::class, 'activity_id');
     }
 
-    public function  getOutputValue(string  $outputType){
+    public function  getOutputValue(string $outputType){
 
        $value = $this->outputs?->where('output_type', $outputType)?->first()?->output_value;
 

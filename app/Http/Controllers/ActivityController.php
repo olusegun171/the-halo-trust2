@@ -55,6 +55,12 @@ class ActivityController extends Controller
 		return view('activity.edit', compact('activity'));
 	}
 
+	public function clone(Request $request, $activityId) {
+		$activity = Activity::findOrFail($activityId);
+
+		return view('activity.clone', compact('activity'));
+	}
+	
 	public function update(Request $request, $activityId) {
 
 		$activity = Activity::findOrFail($activityId);

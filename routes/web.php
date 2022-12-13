@@ -14,11 +14,13 @@ use App\Http\Controllers\ActivityController;
 |
 */
 
-Route::get('', [ActivityController::class, 'index'])->name('activity.index');
-Route::get('create/{task}', ['as' => 'activity.create', 'uses' => 'ActivityController@create']);
+Route::get('/', [ActivityController::class, 'index'])->name('activity.index');
+//Route::get('create/{task}', ['as' => 'activity.create', 'uses' => 'ActivityController@create']);
 
 Route::get('create', [ActivityController::class, 'create'])->name('activity.create');
 Route::post('create', [ActivityController::class, 'store'])->name('activity.store');
 
-Route::get('{activity}/edit', [ActivityController::class, 'edit'])->name('activity.edit');
-Route::post('{activity}/edit', [ActivityController::class, 'update'])->name('activity.update');
+Route::get('activity/{activity}/edit', [ActivityController::class, 'edit'])->name('activity.edit');
+Route::post('activity/{activity}/edit', [ActivityController::class, 'update'])->name('activity.update');
+
+Route::get('activity/{activity}/clone', [ActivityController::class, 'clone'])->name('activity.clone');
